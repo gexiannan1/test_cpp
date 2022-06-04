@@ -10,6 +10,8 @@ FilterContainer filters;
 class Widget
 {
 public:
+	Widget(int value) : divisor(value) { };
+
 	void AddFileter() const
 	{
 		auto divisorCopy = divisor;
@@ -38,7 +40,7 @@ public:
 		);
 	} 
 
-	void SetDivisor(int nValue) { divisor = nValue; }
+	//void SetDivisor(int nValue) { divisor = nValue; }
 
 private:
 
@@ -48,8 +50,9 @@ private:
 
 void doSomeWork()
 {
-	auto pw = std::unique_ptr<Widget>(new Widget);   //C++11 
-	pw->SetDivisor(1000);
+	//auto pw = std::unique_ptr<Widget>(new Widget);   //C++11 
+	auto pw = std::make_unique<Widget>(1000);    //C++14
+	//pw->SetDivisor(1000);
 
 	pw->AddFileter();
 	pw->AddFileter_ref();
