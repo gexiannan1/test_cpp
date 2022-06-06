@@ -18,11 +18,11 @@ public:
 		filters.emplace_back
 		(
 			[divisorCopy](int value)->bool
-		{
+			{
 
-			std::cout << "lambfunc :: pass_by value , copy_divisor prt " << &divisorCopy << ", value : " << divisorCopy << std::endl;
-			return value % divisorCopy == 0;
-		}
+				std::cout << "lambfunc :: pass_by value , copy_divisor prt " << &divisorCopy << ", value : " << divisorCopy << std::endl;
+				return value % divisorCopy == 0;
+			}
 		);
 	}
 
@@ -50,15 +50,10 @@ private:
 
 void doSomeWork()
 {
-	//auto pw = std::unique_ptr<Widget>(new Widget);   //C++11 
 	auto pw = std::make_unique<Widget>(1000);    //C++14
-	//pw->SetDivisor(1000);
 
 	pw->AddFileter();
 	pw->AddFileter_ref();
-	//pw->divisor = 1300;
-	//pw->addFileter();
-	//pw->addFileter_1();
 }
 
 auto main()->int
