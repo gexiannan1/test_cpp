@@ -63,7 +63,10 @@ void doSomeWork()
 
 auto main()->int
 {
-	doSomeWork();
+	//doSomeWork();     //print copyvalue 为不确定值 
+	auto pw = std::make_unique<Widget>(1000);    //C++14
+	pw->AddFileter();
+	pw->AddFileter_ref();
 
 	for (size_t i = 0; i < filters.size(); ++i)
 	{
